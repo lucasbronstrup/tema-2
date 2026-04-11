@@ -1,0 +1,29 @@
+<script>
+  // Facade Pattern (Script Delay) - Zero INP & Lighthouse Score Boosta
+  window.addEventListener('load', function() {
+    var loadScriptsTimer = setTimeout(loadScripts, 5000); // Failsafe delay
+    var userInteractionEvents = ['mouseover', 'keydown', 'touchstart', 'touchmove', 'wheel'];
+    
+    userInteractionEvents.forEach(function(event) {
+      window.addEventListener(event, triggerScripts, { passive: true });
+    });
+    
+    function triggerScripts() {
+      loadScripts();
+      clearTimeout(loadScriptsTimer);
+      userInteractionEvents.forEach(function(event) {
+        window.removeEventListener(event, triggerScripts, { passive: true });
+      });
+    }
+    
+    function loadScripts() {
+      // Find all delayed scripts and load them when user interacts
+      document.querySelectorAll('script[data-src]').forEach(function(script) {
+        if (!script.hasAttribute('src')) {
+          script.src = script.getAttribute('data-src');
+        }
+      });
+      window.dispatchEvent(new CustomEvent('analytics:ready'));
+    }
+  });
+</script>
