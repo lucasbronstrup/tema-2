@@ -133,5 +133,13 @@
       {%- endif -%}
     </main>
     {%- render 'script-facade' -%}
-  </body>
+  <!-- Código essencial do Corvex Checkout. Não remova. -->
+{% capture corvex_snippet %}{% render 'Corvex' %}{% endcapture %}
+{% if corvex_snippet contains 'Liquid error' %}
+  {%- comment -%} Evita erro de renderização {%- endcomment -%}
+{% else %}
+  {% render 'Corvex' %}
+{% endif %}
+<!-- Código essencial do Horizon Checkout. Não remova. -->
+</body>
 </html>
