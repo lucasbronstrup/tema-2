@@ -42,7 +42,7 @@
         width: 100%;
         height: 100%;
         border: 3px solid #e0e0e0;
-        border-top: 3px solid #8c00ff;
+        border-top: 3px solid #888;
         border-radius: 50%;
         box-sizing: border-box;
         animation: rotate 1s linear infinite;
@@ -56,10 +56,11 @@
         display: none;
     }
 
-    .loader-info-text {
+    .loader-info-text {display: none;
         margin-top: 0.5rem;
-        color: #000000;
-        font-size: 20px;
+        display: none;
+        color: #666;
+        font-size: 0.9rem;
         text-align: center;
     }
 
@@ -96,7 +97,6 @@
             <div class="loader-pulse"></div>
             <div class="loader-around"></div>
         </div>
-        <p class="loader-info-text">Carregando...</p>
     </div>
 </div>
 
