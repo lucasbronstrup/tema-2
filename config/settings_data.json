@@ -23,7 +23,7 @@
     "text_font_size_desktop": 14,
     "button_letter_spacing": 18,
     "product_image_aspect_ratio": "square",
-    "cart_type": "page",
+    "cart_type": "drawer",
     "cart_icon": "tote_bag",
     "content_for_index": [],
     "blocks": {
